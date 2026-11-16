@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Issue en Linear (equipo BIT)
+    url: https://linear.app/bitflowcl/team/BIT/new
+    about: El lugar de los issues de Bitflow. Sin acceso a Linear, abre un issue en blanco aquí.
+  - name: Vulnerabilidad de seguridad
+    url: https://github.com/bitflowcl/.github/blob/main/SECURITY.md
+    about: Repórtala en privado, nunca en un issue.

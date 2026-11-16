@@ -1,0 +1,7 @@
+{
+  "name": "Revisor de PRs de Bitflow",
+  "description": "Revisión automática de cada PR con Claude, en español. Labels: ci-review (revisar cada push) y skip-review.",
+  "iconName": "octicon code-review",
+  "categories": ["Automation"],
+  "filePatterns": ["^composer\\.json$", "^package\\.json$", "^AGENTS\\.md$", "^CLAUDE\\.md$"]
+}
