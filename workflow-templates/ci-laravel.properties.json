@@ -1,0 +1,7 @@
+{
+  "name": "CI Laravel de Bitflow",
+  "description": "Pint, Prettier y ESLint, y la suite de tests con SQLite en memoria, en PHP 8.4 y Node 22.",
+  "iconName": "octicon checklist",
+  "categories": ["Continuous integration", "PHP", "Laravel"],
+  "filePatterns": ["^artisan$", "^composer\\.json$"]
+}

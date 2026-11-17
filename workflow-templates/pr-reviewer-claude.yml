@@ -1,0 +1,45 @@
+# Revisión automática de PRs con Claude Code.
+# Workflow reutilizable: bitflowcl/github-actions (el prompt y la lógica viven allá).
+#
+# La Claude GitHub App exige que este archivo exista con contenido idéntico
+# en la rama default; por eso se mantiene igual en todas las ramas.
+#
+# Labels en el PR:
+#   ci-review    -> revisar también en cada push (por defecto solo al abrir)
+#   skip-review  -> no revisar este PR (no afecta a las menciones @claude)
+#
+# Menciones: un comentario de un miembro de la org con `@claude` en un PR
+# hace que Claude responda ahí mismo (preguntas, volver a revisar tras un
+# push, explicar un cambio). Solo lectura: no modifica la rama. Cada mención
+# consume una corrida, igual que una revisión.
+
+name: pr-reviewer-claude
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  id-token: write
+  actions: read
+
+jobs:
+  review:
+    uses: bitflowcl/github-actions/.github/workflows/pr-reviewer-claude.yml@main
+    # Solo el secret que necesita (no `secrets: inherit`, que entregaría todos).
+    secrets:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+    with:
+      # Reemplaza las dos líneas con el stack real y lo que más duele en este repo.
+      extra_instructions: |
+        App <Laravel X (PHP X) con Inertia + Vue/React | SPA Vue X>; tests con <Pest X | PHPUnit X | Vitest>.
+        Presta especial atención a <migraciones, autorización, montos, ...> y cobertura de la lógica nueva o modificada.
