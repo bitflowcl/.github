@@ -11,12 +11,19 @@ BIT-nnn <!-- o "Closes #nnn" si el issue es de GitHub -->
 
 ## Qué cambia
 
-<!-- La vista más chica que lo explique:
-     - flujo, estados o varias piezas que se llaman → Mermaid
-       (flowchart, sequenceDiagram o stateDiagram, hasta ~15 nodos);
-     - cadena de llamadas o archivos que cambian → bloque diff de un árbol;
-     - cambio acotado → 2 a 5 viñetas.
-     Nombra clases, rutas y pantallas como están en el código. -->
+<!-- Diagrama: si el PR cambia un flujo (por dónde pasa una acción o un dato,
+     qué estados recorre un registro, o cómo se llaman tres o más piezas),
+     abre esta sección con un diagrama Mermaid:
+     - flowchart para un proceso o una decisión;
+     - sequenceDiagram para llamadas entre piezas (controlador, job, API externa);
+     - stateDiagram-v2 para los estados de un registro.
+     Muestra solo la parte del flujo que toca el PR, hasta ~15 nodos. Marca lo
+     nuevo con `:::nuevo` y define `classDef nuevo stroke-width:3px`. Pon entre
+     comillas los textos con paréntesis, comas o dos puntos.
+     Si el cambio no altera ningún flujo, va sin diagrama.
+
+     Después, en viñetas o en un bloque diff de un árbol: qué cambia, con
+     clases, rutas y pantallas nombradas como están en el código. -->
 
 ## Decisiones
 
